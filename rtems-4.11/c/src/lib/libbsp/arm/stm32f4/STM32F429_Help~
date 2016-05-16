@@ -1,0 +1,11 @@
+Tested with STM32F429-Discovery evaluation board.
+
+For debugging on Linux use:
+
+https://github.com/texane/stlink
+
+SYSCLK : 180MHz
+HCLK : 180MHz
+PCLK1:45MHz
+PCLK2:90MHz
+

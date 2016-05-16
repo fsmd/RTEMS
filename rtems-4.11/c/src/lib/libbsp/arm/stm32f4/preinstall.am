@@ -101,18 +101,6 @@ $(PROJECT_INCLUDE)/bsp/stm32f4.h: include/stm32f4.h $(PROJECT_INCLUDE)/bsp/$(dir
 	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/bsp/stm32f4.h
 PREINSTALL_FILES += $(PROJECT_INCLUDE)/bsp/stm32f4.h
 
-$(PROJECT_INCLUDE)/bsp/stm32f10xxx_gpio.h: include/stm32f10xxx_gpio.h $(PROJECT_INCLUDE)/bsp/$(dirstamp)
-	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/bsp/stm32f10xxx_gpio.h
-PREINSTALL_FILES += $(PROJECT_INCLUDE)/bsp/stm32f10xxx_gpio.h
-
-$(PROJECT_INCLUDE)/bsp/stm32f10xxx_rcc.h: include/stm32f10xxx_rcc.h $(PROJECT_INCLUDE)/bsp/$(dirstamp)
-	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/bsp/stm32f10xxx_rcc.h
-PREINSTALL_FILES += $(PROJECT_INCLUDE)/bsp/stm32f10xxx_rcc.h
-
-$(PROJECT_INCLUDE)/bsp/stm32f10xxx_exti.h: include/stm32f10xxx_exti.h $(PROJECT_INCLUDE)/bsp/$(dirstamp)
-	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/bsp/stm32f10xxx_exti.h
-PREINSTALL_FILES += $(PROJECT_INCLUDE)/bsp/stm32f10xxx_exti.h
-
 $(PROJECT_INCLUDE)/bsp/stm32f4xxxx_adc.h: include/stm32f4xxxx_adc.h $(PROJECT_INCLUDE)/bsp/$(dirstamp)
 	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/bsp/stm32f4xxxx_adc.h
 PREINSTALL_FILES += $(PROJECT_INCLUDE)/bsp/stm32f4xxxx_adc.h

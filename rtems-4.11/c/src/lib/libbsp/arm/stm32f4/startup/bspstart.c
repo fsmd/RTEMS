@@ -180,8 +180,8 @@ static rtems_status_code set_system_clk(
     pll_q = 2;
   }
 
-  /* APB1 prescaler, APB1 clock must be < 42MHz */
-  apbpre1 = ( sys_clk * 100 ) / 42;
+  /* APB1 prescaler, APB1 clock must be < 45MHz */
+  apbpre1 = ( sys_clk * 100 ) / 45;
 
   if ( apbpre1 <= 100 ) {
     apbpre1 = RCC_CFGR_PPRE1_BY_1;
@@ -195,8 +195,8 @@ static rtems_status_code set_system_clk(
     apbpre1 = RCC_CFGR_PPRE1_BY_16;
   }
 
-  /* APB2 prescaler, APB2 clock must be < 84MHz */
-  apbpre2 = ( sys_clk * 100 ) / 84;
+  /* APB2 prescaler, APB2 clock must be < 90MHz */
+  apbpre2 = ( sys_clk * 100 ) / 90;
 
   if ( apbpre2 <= 100 ) {
     apbpre2 = RCC_CFGR_PPRE2_BY_1;
