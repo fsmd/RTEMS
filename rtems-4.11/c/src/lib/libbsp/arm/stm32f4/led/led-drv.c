@@ -3,14 +3,16 @@
 #include <rtems/bspIo.h>
 #include <rtems/rtems/intr.h>
 
+#include <bsp.h>
 #include <bsp/led-drv.h>
 #include <bsp/io.h>
 
 
 
 rtems_device_driver stm32f_led_init(rtems_device_major_number major,
-									rtems_device_minor_number minor,
-									void	*arg)
+                                    rtems_device_minor_number minor,
+                                    void	*arg
+)
 {
 	rtems_status_code sc;
 
@@ -22,46 +24,48 @@ rtems_device_driver stm32f_led_init(rtems_device_major_number major,
 	}
 
 	/* Switch on led device */
-	stm32f4_gpio_set_output(STM32F4_GPIO_PIN(3, 13), false);
+	stm32f4_gpio_set_output(STM32F4_GPIO_PIN(6, 13), false);
 
 	return RTEMS_SUCCESSFUL;
 }
 
 
 rtems_device_driver stm32f_led_open(rtems_device_major_number major,
-									rtems_device_minor_number minor,
-									void	*arg)
+                                    rtems_device_minor_number minor,
+                                    void	*arg)
 {
 	return RTEMS_SUCCESSFUL;
 }
 
 
 rtems_device_driver stm32f_led_close(rtems_device_major_number major,
-									rtems_device_minor_number minor,
-									void	*arg)
+                                    rtems_device_minor_number minor,
+                                    void	*arg)
 {
 	return RTEMS_SUCCESSFUL;
 }
 
 
 rtems_device_driver stm32f_led_ioctl(rtems_device_major_number major,
-									rtems_device_minor_number minor,
-									void	*arg)
+                                    rtems_device_minor_number minor,
+                                    void	*arg)
 {
 	rtems_libio_ioctl_args_t *local = arg;
 	rtems_interrupt_level level;
+	uint32_t *pins = local->buffer;
 
 	rtems_interrupt_disable(level);
 	switch(local->command) {
 		case LED_DEVICE_OPEN:
-			stm32f4_gpio_set_output(STM32F4_GPIO_PIN(3, 13), false);
+			stm32f4_gpio_multi_set_output(6, *pins, true);
 			break;
 		case LED_DEVICE_CLOSE:
-			stm32f4_gpio_set_output(STM32F4_GPIO_PIN(3, 13), true);
+			stm32f4_gpio_multi_set_output(6, *pins, false);
 			break;
 	}
 	rtems_interrupt_enable(level);
 
 	return RTEMS_SUCCESSFUL;
 }
+
 
