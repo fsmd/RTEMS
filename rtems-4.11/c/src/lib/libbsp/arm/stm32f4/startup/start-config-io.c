@@ -81,5 +81,9 @@ const stm32f4_gpio_config stm32f4_start_config_gpio [] = {
     STM32F4_PIN_I2C2_SDA,
   #endif
 #endif /* STM32F4_FAMILY_F10XXX */
+
+	STM32F4_PIN_LED_PG13,		/* LED1 PG13 */
+	STM32F4_PIN_LED_PG14,		/* LED2 PG14 */
+
   STM32F4_GPIO_CONFIG_TERMINAL
 };

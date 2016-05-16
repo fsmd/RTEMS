@@ -145,6 +145,10 @@ $(PROJECT_INCLUDE)/bsp/i2c.h: include/i2c.h $(PROJECT_INCLUDE)/bsp/$(dirstamp)
 	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/bsp/i2c.h
 PREINSTALL_FILES += $(PROJECT_INCLUDE)/bsp/i2c.h
 
+$(PROJECT_INCLUDE)/bsp/led-drv.h: include/led-drv.h $(PROJECT_INCLUDE)/bsp/$(dirstamp)
+	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/bsp/led-drv.h
+PREINSTALL_FILES += $(PROJECT_INCLUDE)/bsp/led-drv.h
+
 $(PROJECT_INCLUDE)/bsp/stm32_usart.h: include/stm32_usart.h $(PROJECT_INCLUDE)/bsp/$(dirstamp)
 	$(INSTALL_DATA) $< $(PROJECT_INCLUDE)/bsp/stm32_usart.h
 PREINSTALL_FILES += $(PROJECT_INCLUDE)/bsp/stm32_usart.h

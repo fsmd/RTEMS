@@ -49,6 +49,23 @@ extern "C" {
 
 /** @} */
 
+/* */
+#define RTEMS_LED_DRIVER_NAME "/dev/led"
+#define LED_DEVICE_OPEN  1
+#define LED_DEVICE_CLOSE 2
+
+/** @} */
+
+/* Device driver table */
+#ifdef CONFIGURE_ENABLE_BSP_DRIVER
+#include <bsp/led-drv.h>
+
+#define CONFIGURE_APPLICATION_EXTRA_DRIVERS \
+        BSP_LED_DRIVER_ENTRY
+
+#endif
+
+
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */

@@ -239,6 +239,14 @@ void stm32f4_gpio_set_output(int pin, bool set)
   gpio->bsrr = 1U << (index + set_or_clear_offset);
 }
 
+void stm32f4_gpio_multi_set_output(int port, uint32_t index, bool set)
+{
+  volatile stm32f4_gpio *gpio = STM32F4_GPIO(port);
+  int set_or_clear_offset = set ? 0 : 16;
+
+  gpio->bsrr |= index << set_or_clear_offset;
+}
+
 bool stm32f4_gpio_get_input(int pin)
 {
   int port = STM32F4_GPIO_PORT_OF_PIN(pin);

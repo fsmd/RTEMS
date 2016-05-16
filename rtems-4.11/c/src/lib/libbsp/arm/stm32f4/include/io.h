@@ -328,6 +328,29 @@ bool stm32f4_gpio_get_input(int pin);
 #define STM32F4_PIN_USART6_TX_PC6 STM32F4_PIN_USART(2, 6, STM32F4_GPIO_AF_USART6)
 #define STM32F4_PIN_USART6_RX_PC7 STM32F4_PIN_USART(2, 7, STM32F4_GPIO_AF_USART6)
 
+
+/** @*/
+#define STM32F4_PIN_LED(port, idx, altfunc) \
+  { \
+    { \
+      .pin_first = STM32F4_GPIO_PIN(port, idx), \
+      .pin_last = STM32F4_GPIO_PIN(port, idx), \
+      .mode = STM32F4_GPIO_MODE_OUTPUT, \
+      .otype = STM32F4_GPIO_OTYPE_PUSH_PULL, \
+      .ospeed = STM32F4_GPIO_OSPEED_2_MHZ, \
+      .pupd = STM32F4_GPIO_PULL_UP, \
+      .af = altfunc \
+    } \
+  }
+
+//#define  STM32F4_PIN_LED_PD13  STM32F4_PIN_LED(3, 13, STM32F4_GPIO_AF_SYSTEM)
+
+/* STM32F429-Discovery PG13 PG14 LED */	
+#define  STM32F4_PIN_LED_PG13  STM32F4_PIN_LED(6, 13, STM32F4_GPIO_AF_SYSTEM)
+#define  STM32F4_PIN_LED_PG14  STM32F4_PIN_LED(6, 14, STM32F4_GPIO_AF_SYSTEM)
+
+
+
 /** @} */
 
 #endif /* STM32F4_FAMILY_F4XXXX */

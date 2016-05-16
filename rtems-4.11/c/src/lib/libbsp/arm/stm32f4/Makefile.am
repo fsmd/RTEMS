@@ -60,6 +60,7 @@ include_bsp_HEADERS += include/stm32f4xxxx_flash.h
 include_bsp_HEADERS += include/stm32f4xxxx_otgfs.h
 include_bsp_HEADERS += include/stm32_i2c.h
 include_bsp_HEADERS += include/i2c.h
+include_bsp_HEADERS += include/led-drv.h
 include_bsp_HEADERS += include/stm32_usart.h
 include_bsp_HEADERS += include/io.h
 include_bsp_HEADERS += include/rcc.h
@@ -119,6 +120,9 @@ libbsp_a_SOURCES += console/usart.c
 # I2C
 libbsp_a_SOURCES += i2c/i2c.c
 libbsp_a_SOURCES += i2c/i2c-config.c
+
+# LED-DRVF
+libbsp_a_SOURCES += led/led-drv.c
 
 # Clock
 libbsp_a_SOURCES += ../../shared/clockdrv_shell.h
